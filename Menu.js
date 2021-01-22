@@ -1,16 +1,27 @@
 import React from 'react'
-
- function Menu(props) {
+import Video from './Video';
+import {BrowserRouter as Router, Route, Link, Switch} from "react-router-dom";
+function Menu() {
     return (
-        <div>
-        <form>
-         <input name="video" type="radio" onClick={()=>props.chooseVideo('fast')}/>Fast   
-         <input name="video" type="radio" onClick={()=>props.chooseVideo('slow')}/>Slow   
-         <input name="video" type="radio" onClick={()=>props.chooseVideo('cute')}/>Cute  
-         <input name="video" type="radio" onClick={()=>props.chooseVideo('eek')}/>Eek   
-        </form>    
-        </div>
-    )
+        <div className="Menu">
+        <ul>
+            <li>
+                <Link to="/fast">Fast</Link>
+            </li>
+            <li>
+                <Link to="/slow">Slow</Link>
+            </li>
+            <li>
+                <Link to="/cute">Cute</Link>
+            </li>
+            <li>
+                <Link to="/eek">Eek</Link>
+            </li>
+        </ul> 
+        <Switch>
+        <Route path="/:name" component={Video}/>
+       </Switch> 
+        </div>)
 }
 
 export default Menu;
